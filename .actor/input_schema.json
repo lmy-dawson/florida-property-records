@@ -1,0 +1,169 @@
+{
+  "title": "Florida Property Records",
+  "type": "object",
+  "schemaVersion": 1,
+  "properties": {
+    "counties": {
+      "title": "Counties",
+      "type": "array",
+      "description": "Which county rolls to read. Leave empty for all of them.",
+      "editor": "select",
+      "items": {
+        "type": "string",
+        "enum": [
+          "Hillsborough",
+          "Pasco"
+        ],
+        "enumTitles": [
+          "Hillsborough (Tampa) — 531k parcels",
+          "Pasco — 326k parcels"
+        ]
+      },
+      "default": [
+        "Hillsborough"
+      ]
+    },
+    "maxResults": {
+      "title": "Maximum results",
+      "type": "integer",
+      "description": "Stop after this many matching parcels. Start small while you tune filters — there are 858,000 parcels in total.",
+      "default": 1000,
+      "minimum": 1,
+      "maximum": 900000,
+      "unit": "parcels"
+    },
+    "requireValidAddress": {
+      "title": "Skip parcels with no street address",
+      "type": "boolean",
+      "description": "About 5% of a county roll is submerged land, rights of way and drainage tracts with no real address (they appear as \"0\"). These are excluded by default. Turn this off to get the complete roll.",
+      "default": true
+    },
+    "propertyTypes": {
+      "title": "Property type",
+      "type": "array",
+      "description": "Normalised across counties, so 'Single Family' means the same thing everywhere. Leave empty for all types.",
+      "editor": "select",
+      "items": {
+        "type": "string",
+        "enum": [
+          "Single Family",
+          "Condominium",
+          "Multi-Family",
+          "Mobile Home",
+          "Vacant Land",
+          "Commercial",
+          "Industrial",
+          "Agricultural",
+          "Institutional",
+          "Government",
+          "Other"
+        ]
+      },
+      "default": []
+    },
+    "absenteeOwnersOnly": {
+      "title": "Absentee owners only",
+      "type": "boolean",
+      "description": "Only parcels where the owner's mailing address differs from the property address — the standard signal the owner does not live there.",
+      "default": false
+    },
+    "outOfStateOwnersOnly": {
+      "title": "Out-of-state owners only",
+      "type": "boolean",
+      "description": "Only parcels whose owner receives mail outside Florida.",
+      "default": false
+    },
+    "excludeHomestead": {
+      "title": "Exclude homestead-exempt properties",
+      "type": "boolean",
+      "description": "Drop parcels with a homestead exemption, i.e. the owner's primary residence. Only some counties publish this flag; parcels without the data are kept.",
+      "default": false
+    },
+    "ownerType": {
+      "title": "Owner type",
+      "type": "string",
+      "description": "Whether the owner looks like a company or trust, or a private individual.",
+      "editor": "select",
+      "enum": [
+        "any",
+        "individual",
+        "entity"
+      ],
+      "enumTitles": [
+        "Any owner",
+        "Individuals only",
+        "Companies / trusts only"
+      ],
+      "default": "any"
+    },
+    "cities": {
+      "title": "Cities",
+      "type": "array",
+      "description": "Property city, e.g. TAMPA, BRANDON, RIVERVIEW, NEW PORT RICHEY, WESLEY CHAPEL.",
+      "editor": "stringList",
+      "default": []
+    },
+    "zipCodes": {
+      "title": "ZIP codes",
+      "type": "array",
+      "description": "Five-digit property ZIP codes, e.g. 33607.",
+      "editor": "stringList",
+      "default": []
+    },
+    "minJustValue": {
+      "title": "Minimum market value (USD)",
+      "type": "integer",
+      "description": "Assessor just/market value floor.",
+      "minimum": 0,
+      "unit": "USD"
+    },
+    "maxJustValue": {
+      "title": "Maximum market value (USD)",
+      "type": "integer",
+      "description": "Assessor just/market value ceiling.",
+      "minimum": 0,
+      "unit": "USD"
+    },
+    "minYearBuilt": {
+      "title": "Built after year",
+      "type": "integer",
+      "minimum": 1800,
+      "maximum": 2100,
+      "description": "Only parcels with an actual year built at or after this year."
+    },
+    "maxYearBuilt": {
+      "title": "Built before year",
+      "type": "integer",
+      "minimum": 1800,
+      "maximum": 2100,
+      "description": "Only parcels with an actual year built at or before this year."
+    },
+    "minLivingAreaSqFt": {
+      "title": "Minimum living area (sq ft)",
+      "type": "integer",
+      "minimum": 0,
+      "unit": "sq ft",
+      "description": "Only parcels with at least this much heated living area."
+    },
+    "lastSoldBeforeYear": {
+      "title": "Last sold before year",
+      "type": "integer",
+      "description": "Find long-held property — parcels whose last recorded sale predates this year.",
+      "minimum": 1900,
+      "maximum": 2100
+    },
+    "lastSoldAfterYear": {
+      "title": "Last sold after year",
+      "type": "integer",
+      "description": "Only parcels sold since this year.",
+      "minimum": 1900,
+      "maximum": 2100
+    },
+    "ownerNameContains": {
+      "title": "Owner name contains",
+      "type": "string",
+      "description": "Case-insensitive substring match, e.g. HOLDINGS.",
+      "editor": "textfield"
+    }
+  }
+}

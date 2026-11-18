@@ -1,0 +1,51 @@
+{
+  "actorSpecification": 1,
+  "views": {
+    "overview": {
+      "title": "Parcels",
+      "transformation": {
+        "fields": [
+          "ownerName",
+          "propertyAddress",
+          "propertyCity",
+          "propertyZip",
+          "mailingAddress",
+          "mailingCity",
+          "mailingState",
+          "isAbsenteeOwner",
+          "isOutOfState",
+          "justValue",
+          "lastSalePrice",
+          "lastSaleDate",
+          "propertyType",
+          "livingAreaSqFt",
+          "yearBuilt",
+          "county",
+          "parcelId"
+        ]
+      },
+      "display": {
+        "component": "table",
+        "properties": {
+          "ownerName": { "label": "Owner" },
+          "propertyAddress": { "label": "Property address" },
+          "propertyCity": { "label": "City" },
+          "propertyZip": { "label": "ZIP" },
+          "mailingAddress": { "label": "Owner mailing address" },
+          "mailingCity": { "label": "Mail city" },
+          "mailingState": { "label": "Mail state" },
+          "isAbsenteeOwner": { "label": "Absentee" },
+          "isOutOfState": { "label": "Out of state" },
+          "justValue": { "label": "Market value" },
+          "lastSalePrice": { "label": "Last sale $" },
+          "lastSaleDate": { "label": "Last sale" },
+          "propertyType": { "label": "Type" },
+          "livingAreaSqFt": { "label": "Sq ft" },
+          "yearBuilt": { "label": "Built" },
+          "county": { "label": "County" },
+          "parcelId": { "label": "Parcel ID" }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "actorOutputSchemaVersion": 1,
+  "title": "Florida property records output",
+  "description": "One row per parcel, written to the default dataset.",
+  "properties": {
+    "parcels": {
+      "type": "string",
+      "title": "Parcel records",
+      "description": "Every matching parcel with owner, mailing address, values, sale history and building details.",
+      "template": "{{links.apiDefaultDatasetUrl}}/items?clean=true"
+    },
+    "parcelsCsv": {
+      "type": "string",
+      "title": "Parcel records (CSV)",
+      "description": "The same records as a CSV file, ready for a mail-merge or CRM import.",
+      "template": "{{links.apiDefaultDatasetUrl}}/items?clean=true&format=csv"
+    },
+    "datasetView": {
+      "type": "string",
+      "title": "Browse results",
+      "description": "Open the results table in Apify Console.",
+      "template": "{{links.consoleDatasetUrl}}"
+    }
+  }
+}
