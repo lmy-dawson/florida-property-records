@@ -1,4 +1,6 @@
-> **Live tool:** [apify.com/teamsasuke/florida-property-records](https://apify.com/teamsasuke/florida-property-records) — published on the Apify Store with pay-per-result pricing.
+[![tests](https://github.com/lmy-dawson/florida-property-records/actions/workflows/tests.yml/badge.svg)](https://github.com/lmy-dawson/florida-property-records/actions/workflows/tests.yml)
+
+> **Live tool:** [apify.com/teamsasuke/florida-property-records](https://apify.com/teamsasuke/florida-property-records) — running in production on the Apify Store.
 > Source code by [Benjamin-David Dawson](https://github.com/lmy-dawson). The rest of this README is the user guide shown on the Store.
 
 <details>
@@ -9,6 +11,8 @@
 - `src/counties/` — one adapter per county (Hillsborough, Pasco) that reads the county's public parcel data.
 - `src/normalize.py` — maps both counties into one schema (owner, mailing address, assessed value, sales, building data) and converts lot size between acres and square feet so both counties fill the same fields.
 - Filters such as absentee owners and sale dates run before output; results go to an Apify dataset, which exports as JSON, CSV or Excel.
+
+**Run the tests:** `pip install -r requirements.txt pytest && pytest`
 
 **Run locally**
 
